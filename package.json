@@ -1,0 +1,9 @@
+{
+  "name": "b2gbisectbot",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janus926/b2gbisectbot.git"
+  }
+}
