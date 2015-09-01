@@ -15,7 +15,13 @@ if [ -z "$3" ]; then
   make reference-workload-light
 fi
 
-metrics=$($BBB_WORKDIR/../node_modules/.bin/raptor test coldlaunch --runs 30 --app $1)
+IFS=/ read app entry <<< $1
+
+if [ -z "$entry" ]; then
+  metrics=$($BBB_WORKDIR/../node_modules/.bin/raptor test coldlaunch --runs 30 --app $app)
+else
+  metrics=$($BBB_WORKDIR/../node_modules/.bin/raptor test coldlaunch --runs 30 --app $app --entry-point $entry)
+fi
 echo "$metrics"
 mean=$(echo "$metrics" | grep visuallyLoaded | awk '{print $4}')
 
