@@ -28,7 +28,7 @@ var main = function() {
                  'echo "GECKO_PATH=' + GECKODIR + '" > .userconfig'],
                 { stdio: 'inherit' });
     } else {
-      spawnSync('bash', ['-c', 'cd B2G; ./repo sync'], { stdio: 'inherit' });
+      spawnSync('bash', ['-c', 'cd B2G; ./repo sync --force-sync'], { stdio: 'inherit' });
     }
 
     if (!fs.existsSync(GECKODIR)) {
